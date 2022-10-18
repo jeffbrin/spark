@@ -11,12 +11,14 @@ and the Flutter guide for
 [developing packages and plugins](https://flutter.dev/developing-packages).
 -->
 
-TODO: Put a short description of the package here that helps potential users
-know whether this package might be useful for them.
+Spark helps with game development by providing several components which help manage physics, collisions and animation.
+For examples, see the `/examples` folder or the [usage](#usage) section.
 
 ## Features
-
-TODO: List what your package can do. Maybe include images, gifs, or videos.
+Important features of the package include:
+* [PhysicsBody](https://github.com/jeffbrin/spark/blob/main/lib/components/physics_body.dart)
+* [Visuals](https://github.com/jeffbrin/spark/blob/main/lib/helpers/visuals.dart)
+* [FootCollider](https://github.com/jeffbrin/spark/blob/main/lib/components/foot_collider.dart)
 
 ## Getting started
 
@@ -30,15 +32,40 @@ Once you have the package downloaded, you can follow this tutorial to add the pa
 
 ## Usage
 
-TODO: Include short and useful examples for package users. Add longer examples
-to `/example` folder.
+Find longer examples in the `/example` folder.
 
+### Visuals.getAnimation()
 ```dart
-const like = 'sample';
+class Wizard extends SpriteAnimationComponent {
+
+  Wizard({size, position}) : super(size: size, position: position);
+
+  @override
+  Future<void>? onLoad() async {
+    super.onLoad();
+    animation = await Visuals.getAnimation(
+        'red_hood.png', Vector2(112, 133), 0.1,
+        startRow: 5, startColumn: 2);
+  }
+}
+```
+
+### PhysicsBody
+```dart
+class Object extends SpriteAnimationComponent {
+  late PhysicsBody physicsBody;
+
+  Object({size, position}) : super(size: size, position: position) {
+    physicsBody = PhysicsBody(this);
+  }
+
+  @override
+  void update(double dt) {
+    super.update(dt);
+    physicsBody.update(dt);
+  }
+}
 ```
 
 ## Additional information
-
-TODO: Tell users more about the package: where to find more information, how to
-contribute to the package, how to file issues, what response they can expect
-from the package authors, and more.
+As of October 18th 2022, this package is still being actively updated.
