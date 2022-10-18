@@ -20,8 +20,10 @@ TODO: List what your package can do. Maybe include images, gifs, or videos.
 
 ## Getting started
 
-TODO: List prerequisites and provide or point to information on how to
-start using the package.
+To add this package to your project, add this package folder to your application. Download the code by opening a git terminal and writing git clone https://github.com/jeffbrin/spark.git
+
+Once you have the package downloaded, you can follow this tutorial to add the package to your flame app.
+https://www.youtube.com/watch?v=rizfiEgNM8Y&t=388s
 
 ## Usage
 
